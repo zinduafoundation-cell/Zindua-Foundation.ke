@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+:root {
+  --zindua-forest: #063c39;
+  --zindua-mud: #0d2f2d;
+  --zindua-teal: #0f5d57;
+  --zindua-ivory: #f8f1e7;
+  --zindua-sand: #e7d7ba;
+  --zindua-gold: #d9a867;
+  --zindua-bronze: #b76d4a;
+  --zindua-terracotta: #d1885f;
+  --zindua-charcoal: #171d1c;
+  --zindua-ink: #122220;
+
+  --bg-base: linear-gradient(180deg, #081f1f 0%, #0b2f2c 100%);
+  --bg-elevated: rgba(19, 58, 55, 0.9);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-border: rgba(247, 241, 231, 0.14);
+  --text-main: var(--zindua-ivory);
+  --text-soft: rgba(248, 241, 231, 0.75);
+  --text-muted: rgba(248, 241, 231, 0.6);
+  --accent: var(--zindua-gold);
+  --accent-soft: rgba(217, 168, 103, 0.16);
+  --light-bg: var(--zindua-ivory);
+  --light-text: var(--zindua-forest);
+  --light-soft: rgba(6, 60, 57, 0.72);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--zindua-forest);
+}
+
+html[data-theme="light"] {
+  --bg-base: linear-gradient(180deg, #f9f2e6 0%, #f1e5d0 100%);
+  --bg-elevated: rgba(255, 255, 255, 0.75);
+  --surface: rgba(6, 60, 57, 0.04);
+  --surface-border: rgba(6, 60, 57, 0.12);
+  --text-main: var(--zindua-forest);
+  --text-soft: rgba(6, 60, 57, 0.7);
+  --text-muted: rgba(6, 60, 57, 0.56);
+  --accent: var(--zindua-gold);
+  --accent-soft: rgba(217, 168, 103, 0.18);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-main);
+  overflow-x: hidden;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  transition: background 250ms ease, color 250ms ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+   radial-gradient(circle at top left, rgba(217, 168, 103, 0.18), transparent 28%),
+   radial-gradient(circle at bottom right, rgba(183, 109, 74, 0.18), transparent 30%),
+   linear-gradient(135deg, rgba(255,255,255,0.02), transparent 55%);
+  z-index: 0;
+}
+
+.page-transition {
+  position: relative;
+  z-index: 1;
+}
+
+@supports (animation-timeline: view()) {
+  .page-transition {
+    animation: pageIn 0.65s cubic-bezier(0.23, 0.98, 0.38, 1) both;
+    animation-delay: 0.08s;
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--zindua-gold);
+  color: var(--zindua-forest);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 29, 29, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--zindua-gold), var(--zindua-bronze));
+  border-radius: 999px;
+}
+
+.zindua-glow {
+  box-shadow: 0 0 28px rgba(217, 168, 103, 0.16), 0 0 90px rgba(15, 93, 87, 0.14);
+}
+
+.zindua-glass {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.zindua-card {
+  position: relative;
+  background:
+   linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+   rgba(13, 47, 45, 0.7);
+  border: 1px solid var(--surface-border);
+  border-radius: 2rem;
+  box-shadow: 0 25px 70px rgba(4, 16, 17, 0.2);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.zindua-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 168, 103, 0.7);
+  box-shadow: 0 35px 80px rgba(217, 168, 103, 0.12);
+}
+
+.masonry-grid {
+  columns: 1;
+  column-gap: 1.25rem;
+}
+
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  break-inside: avoid;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+   columns: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .masonry-grid {
+   columns: 3;
+  }
+}
+
+.brand-btn,
+.brand-btn-secondary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.brand-btn::before,
+.brand-btn-secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+  transform: translateX(-120%);
+  transition: transform 500ms ease;
+  z-index: -1;
+}
+
+.brand-btn:hover::before,
+.brand-btn-secondary:hover::before {
+  transform: translateX(120%);
+}
+
+.brand-btn {
+  background: linear-gradient(135deg, var(--zindua-gold), var(--zindua-terracotta));
+  color: var(--zindua-forest);
+  box-shadow: 0 18px 30px rgba(217, 168, 103, 0.28);
+}
+
+.brand-btn-secondary {
+  border: 1px solid var(--surface-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-main);
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--zindua-gold);
+}
+
+.section-tag::before {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background: rgba(217, 168, 103, 0.7);
+}
+
+.input-shell {
+  width: 100%;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(6, 60, 57, 0.12);
+  background: rgba(255,255,255,0.7);
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.input-shell:focus {
+  border-color: var(--zindua-gold);
+  box-shadow: 0 0 0 4px rgba(217, 168, 103, 0.15);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+   scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+   animation-duration: 0.01ms !important;
+   animation-iteration-count: 1 !important;
+   transition-duration: 0.01ms !important;
+  }
+}

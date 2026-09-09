@@ -1,0 +1,27 @@
+[
+  {
+    "type": "donation",
+    "fullName": "Jane Doe",
+    "email": "jane@example.com",
+    "phone": "+254700000000",
+    "amount": "2500",
+    "supportArea": "Food support",
+    "message": "Happy to help",
+    "monthly": false,
+    "paymentMethod": "MPESA Paybill",
+    "createdAt": "2026-08-22T21:15:18.830Z"
+  },
+  {
+    "type": "donation",
+    "fullName": "Jane Doe",
+    "email": "jane@example.com",
+    "phone": "+254700000000",
+    "amount": "2500",
+    "supportArea": "Food support",
+    "message": "Happy to help",
+    "monthly": false,
+    "paymentMethod": "MPESA Paybill",
+    "consent": true,
+    "createdAt": "2026-08-22T21:19:33.968Z"
+  }
+]

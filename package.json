@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.31.0",
+    "next": "^16.3.1",
+    "postcss": "^8.5.26",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
+    "typescript": "^6.0.3"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "optimize:images": "echo \"To optimize images, run one of the following locally:\n  1) npx imagemin-cli public/images/* --out-dir=public/images/optimized\n  2) npx sharp-cli --verbose public/images/* --output public/images/optimized\n  3) Install cwebp and run: for f in public/images/*.png; do cwebp -q 80 \"$f\" -o \"${f%.*}.webp\"; done\""
+  }
+}

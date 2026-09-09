@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+build
+.vite
+.vercel
+.env
+.env.*
+.DS_Store
+npm-debug.log*
