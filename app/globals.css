@@ -70,9 +70,49 @@ body::before {
   z-index: 1;
 }
 
+.page-transition-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top, rgba(217, 168, 103, 0.14), transparent 28%);
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.page-transition [data-reveal="true"] {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  filter: blur(8px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.page-transition [data-reveal="true"].reveal-ready {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.page-transition section:nth-of-type(2n) [data-reveal="true"],
+.page-transition article:nth-of-type(2n) [data-reveal="true"],
+.page-transition .zindua-card:nth-of-type(2n) {
+  transition-delay: calc(var(--reveal-delay, 0ms) + 70ms);
+}
+
+.page-transition section:nth-of-type(3n) [data-reveal="true"],
+.page-transition article:nth-of-type(3n) [data-reveal="true"],
+.page-transition .zindua-card:nth-of-type(3n) {
+  transition-delay: calc(var(--reveal-delay, 0ms) + 140ms);
+}
+
 @supports (animation-timeline: view()) {
   .page-transition {
-    animation: pageIn 0.65s cubic-bezier(0.23, 0.98, 0.38, 1) both;
+    animation: pageIn 0.7s cubic-bezier(0.23, 0.98, 0.38, 1) both;
     animation-delay: 0.08s;
   }
 }
@@ -80,13 +120,60 @@ body::before {
 @keyframes pageIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px) scale(0.985);
     filter: blur(12px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     filter: blur(0px);
+  }
+}
+
+.zindua-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+    rgba(13, 47, 45, 0.7);
+  border: 1px solid var(--surface-border);
+  border-radius: 2rem;
+  box-shadow: 0 25px 70px rgba(4, 16, 17, 0.2);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease, background 300ms ease;
+}
+
+.zindua-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(217, 168, 103, 0.8);
+  box-shadow: 0 28px 90px rgba(217, 168, 103, 0.18), 0 30px 70px rgba(4, 16, 17, 0.28);
+}
+
+.brand-btn,
+.brand-btn-secondary,
+section a,
+article a {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.brand-btn:hover,
+.brand-btn-secondary:hover,
+section a:hover,
+article a:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .page-transition [data-reveal="true"],
+  .zindua-card,
+  .brand-btn,
+  .brand-btn-secondary,
+  section a,
+  article a {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 }
 

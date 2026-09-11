@@ -252,12 +252,12 @@ function SectionLabel({
   return (
     <div
       className={`mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] ${
-        light ? "text-white/70" : "text-black/50"
+        light ? "text-white/70" : "text-[var(--zindua-gold)]"
       }`}
     >
       <span
         className={`h-px w-10 ${
-          light ? "bg-white/40" : "bg-black/30"
+          light ? "bg-white/40" : "bg-[var(--zindua-gold)]"
         }`}
       />
       <span>{children}</span>
@@ -325,8 +325,8 @@ function UploadDropzone({
       onDrop={handleDrop}
       className={`group relative overflow-hidden rounded-[2rem] border-2 border-dashed p-8 text-center transition-all duration-300 sm:p-12 ${
         dragging
-          ? "border-black bg-black/[0.06] scale-[1.01]"
-          : "border-black/15 bg-white hover:border-black/30 hover:bg-black/[0.02]"
+          ? "border-[var(--zindua-gold)] bg-[rgba(217,168,103,0.08)] scale-[1.01]"
+          : "border-white/20 bg-[rgba(255,255,255,0.04)] hover:border-[var(--zindua-gold)]/80 hover:bg-[rgba(217,168,103,0.04)]"
       }`}
     >
       <input
@@ -343,16 +343,16 @@ function UploadDropzone({
           y: dragging ? -6 : 0,
           scale: dragging ? 1.05 : 1,
         }}
-        className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-black text-white"
+        className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--zindua-gold)] text-[var(--zindua-forest)]"
       >
         <Upload size={26} />
       </motion.div>
 
-      <h3 className="text-xl font-black sm:text-2xl">
+      <h3 className="text-xl font-black text-[var(--zindua-ivory)] sm:text-2xl">
         Add project photographs
       </h3>
 
-      <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-black/55 sm:text-base">
+      <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[var(--text-soft)] sm:text-base">
         Drag and drop photographs here, or select multiple images from
         your device. Use clear photographs that tell the story of the
         work.
@@ -361,13 +361,13 @@ function UploadDropzone({
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="mt-7 inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-bold text-white transition hover:scale-105"
+        className="mt-7 inline-flex items-center gap-2 rounded-full bg-[var(--zindua-gold)] px-6 py-3 text-sm font-bold text-[var(--zindua-forest)] shadow-[0_18px_40px_rgba(217,168,103,0.25)] transition hover:scale-105"
       >
         <ImagePlus size={17} />
         Select photographs
       </button>
 
-      <p className="mt-5 text-xs text-black/35">
+      <p className="mt-5 text-xs text-[var(--text-muted)]">
         JPG, PNG, WEBP or AVIF • Multiple images supported
       </p>
     </div>
@@ -436,23 +436,23 @@ function GalleryManager() {
   return (
     <section
       id="project-gallery"
-      className="border-t border-black/10 bg-[#f5f3ed] py-24 sm:py-32"
+      className="border-t border-white/10 bg-[#0b2f2d] py-24 sm:py-32"
     >
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <SectionLabel>Project Gallery</SectionLabel>
 
-            <h2 className="max-w-3xl text-4xl font-black tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+            <h2 className="max-w-3xl text-4xl font-black tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-7xl">
               Let the work
-              <span className="block text-black/40">
+              <span className="block text-[var(--zindua-gold)]/80">
                 speak for itself.
               </span>
             </h2>
           </div>
 
           <div className="max-w-xl lg:ml-auto">
-            <p className="text-base leading-8 text-black/60 sm:text-lg">
+            <p className="text-base leading-8 text-[var(--text-soft)] sm:text-lg">
               Photographs help us document the people, places, ideas and
               moments behind every project. Upload project photographs,
               organise them and prepare them for the Zindua story.
@@ -473,8 +473,8 @@ function GalleryManager() {
                 onClick={() => setFilter(item)}
                 className={`rounded-full px-5 py-2.5 text-xs font-bold transition ${
                   filter === item
-                    ? "bg-black text-white"
-                    : "bg-white text-black/55 hover:bg-black/10"
+                    ? "bg-[var(--zindua-gold)] text-[var(--zindua-forest)]"
+                    : "bg-white/5 text-[var(--text-soft)] hover:bg-white/10"
                 }`}
               >
                 {item}
@@ -492,7 +492,7 @@ function GalleryManager() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="overflow-hidden rounded-[2rem] border border-black/10 bg-white"
+                className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d3635]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-black/5">
                   <img
@@ -502,12 +502,12 @@ function GalleryManager() {
                   />
 
                   <div className="absolute inset-x-0 top-0 flex justify-between p-4">
-                    <span className="rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider backdrop-blur">
+                    <span className="rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-[var(--zindua-forest)] backdrop-blur">
                       {image.category}
                     </span>
 
                     {image.featured && (
-                      <span className="rounded-full bg-black px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-white">
+                      <span className="rounded-full bg-[var(--zindua-gold)] px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-[var(--zindua-forest)]">
                         Featured
                       </span>
                     )}
@@ -516,7 +516,7 @@ function GalleryManager() {
                   <button
                     type="button"
                     onClick={() => setActivePreview(image)}
-                    className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 transition hover:scale-110"
+                    className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[var(--zindua-forest)] transition hover:scale-105"
                     aria-label="Preview image"
                   >
                     <ArrowUpRight size={17} />
@@ -525,7 +525,7 @@ function GalleryManager() {
 
                 <div className="space-y-4 p-5">
                   <div>
-                    <label className="text-[10px] font-black uppercase tracking-widest text-black/35">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
                       Caption
                     </label>
                     <input
@@ -537,12 +537,12 @@ function GalleryManager() {
                           event.target.value
                         )
                       }
-                      className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f5] px-3 py-2.5 text-sm outline-none transition focus:border-black"
+                      className="mt-2 w-full rounded-xl border border-white/10 bg-[#0e3b3a] px-3 py-2.5 text-sm text-[var(--zindua-ivory)] outline-none transition focus:border-[var(--zindua-gold)]"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-black uppercase tracking-widest text-black/35">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
                       Accessibility text
                     </label>
                     <input
@@ -554,7 +554,7 @@ function GalleryManager() {
                           event.target.value
                         )
                       }
-                      className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f5] px-3 py-2.5 text-sm outline-none transition focus:border-black"
+                      className="mt-2 w-full rounded-xl border border-white/10 bg-[#0e3b3a] px-3 py-2.5 text-sm text-[var(--zindua-ivory)] outline-none transition focus:border-[var(--zindua-gold)]"
                     />
                   </div>
 
@@ -568,7 +568,7 @@ function GalleryManager() {
                           event.target.value as WorkCategory
                         )
                       }
-                      className="rounded-xl border border-black/10 bg-[#faf9f5] px-3 py-2.5 text-xs font-bold outline-none"
+                      className="rounded-xl border border-white/10 bg-[#0e3b3a] px-3 py-2.5 text-xs font-bold text-[var(--zindua-ivory)] outline-none"
                     >
                       {categories.map((category) => (
                         <option
@@ -585,8 +585,8 @@ function GalleryManager() {
                       onClick={() => setFeatured(image.id)}
                       className={`rounded-xl px-3 py-2.5 text-xs font-bold transition ${
                         image.featured
-                          ? "bg-black text-white"
-                          : "border border-black/10 bg-[#faf9f5]"
+                          ? "bg-[var(--zindua-gold)] text-[var(--zindua-forest)]"
+                          : "border border-white/10 bg-[#0e3b3a] text-[var(--zindua-ivory)]"
                       }`}
                     >
                       {image.featured
@@ -598,7 +598,7 @@ function GalleryManager() {
                   <button
                     type="button"
                     onClick={() => removeImage(image.id)}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-red-500/10 px-4 py-2.5 text-xs font-bold text-red-600 transition hover:bg-red-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-red-400/20 px-4 py-2.5 text-xs font-bold text-red-300 transition hover:bg-red-500/10"
                   >
                     <Trash2 size={14} />
                     Remove photograph
@@ -610,8 +610,8 @@ function GalleryManager() {
         </div>
 
         {visibleImages.length === 0 && (
-          <div className="mt-12 rounded-[2rem] border border-black/10 bg-white p-12 text-center">
-            <Camera className="mx-auto text-black/25" size={40} />
+          <div className="mt-12 rounded-[2rem] border border-white/10 bg-[#0d3635] p-12 text-center text-[var(--zindua-ivory)]">
+            <Camera className="mx-auto text-[var(--zindua-gold)]/80" size={40} />
             <p className="mt-4 font-bold">No photographs in this category.</p>
           </div>
         )}
@@ -674,7 +674,7 @@ export default function OurWorkPage() {
         )
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#faf9f5] text-[#101010]">
+    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(217,168,103,0.12),_transparent_20%),linear-gradient(180deg,_#081f1f_0%,_#0d2f2d_100%)] text-[var(--zindua-ivory)]">
 
       {/* HERO */}
       <section className="relative flex min-h-[850px] items-center pt-20">
@@ -741,30 +741,30 @@ export default function OurWorkPage() {
       </section>
 
       {/* INTRO */}
-      <section className="border-b border-black/10 bg-[#faf9f5] py-24 sm:py-32">
+      <section className="border-b border-white/10 bg-[#0d2f2d] py-24 sm:py-32">
         <div className="mx-auto grid max-w-[1500px] gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-12">
           <div>
             <SectionLabel>The approach</SectionLabel>
 
-            <h2 className="max-w-3xl text-4xl font-black leading-[1] tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+            <h2 className="max-w-3xl text-4xl font-black leading-[1] tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-7xl">
               Real work.
               <br />
               Real people.
               <br />
-              <span className="text-black/35">
+              <span className="text-[var(--zindua-gold)]/80">
                 Real possibility.
               </span>
             </h2>
           </div>
 
           <div className="flex flex-col justify-end">
-            <p className="text-lg leading-9 text-black/65 sm:text-xl">
+            <p className="text-lg leading-9 text-[var(--text-soft)] sm:text-xl">
               Our work starts with listening. We look at what people
               need, what communities already have, and where technology,
               education and collaboration can unlock something better.
             </p>
 
-            <p className="mt-6 text-base leading-8 text-black/45">
+            <p className="mt-6 text-base leading-8 text-[var(--text-muted)]">
               We believe meaningful change does not happen through one
               person or one idea. It happens when people have access to
               knowledge, tools, networks and opportunities.
@@ -774,12 +774,12 @@ export default function OurWorkPage() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="bg-black py-24 text-white sm:py-32">
+      <section className="bg-[#081f1f] py-24 text-white sm:py-32">
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
           <div className="max-w-3xl">
             <SectionLabel light>What we focus on</SectionLabel>
 
-            <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+            <h2 className="text-4xl font-black tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-7xl">
               Six pathways.
               <span className="block text-white/35">
                 One bigger vision.
@@ -801,10 +801,10 @@ export default function OurWorkPage() {
                     duration: 0.6,
                     delay: index * 0.05,
                   }}
-                  className="group border-b border-r border-white/10 p-7 transition hover:bg-white/[0.04] sm:p-9 lg:p-10"
+                  className="group border-b border-r border-white/10 bg-[rgba(255,255,255,0.02)] p-7 transition hover:bg-[rgba(217,168,103,0.08)] sm:p-9 lg:p-10"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--zindua-gold)]/60 bg-[rgba(217,168,103,0.08)] text-[var(--zindua-gold)]">
                       <Icon size={21} />
                     </div>
 
@@ -813,7 +813,7 @@ export default function OurWorkPage() {
                     </span>
                   </div>
 
-                  <h3 className="mt-10 text-2xl font-black">
+                  <h3 className="mt-10 text-2xl font-black text-[var(--zindua-ivory)]">
                     {category.name}
                   </h3>
 
@@ -821,7 +821,7 @@ export default function OurWorkPage() {
                     {category.description}
                   </p>
 
-                  <div className="mt-8 h-px w-0 bg-white transition-all duration-500 group-hover:w-full" />
+                  <div className="mt-8 h-px w-0 bg-[var(--zindua-gold)] transition-all duration-500 group-hover:w-full" />
                 </motion.div>
               )
             })}
@@ -830,7 +830,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* IMPACT */}
-      <section className="bg-[#d9ff45] py-20 sm:py-28">
+      <section className="bg-[linear-gradient(180deg,_rgba(217,168,103,0.22),_rgba(217,168,103,0.06))] py-20 text-[var(--zindua-forest)] sm:py-28">
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
           <SectionLabel>Our impact mindset</SectionLabel>
 
@@ -838,14 +838,14 @@ export default function OurWorkPage() {
             {impactNumbers.map((item) => (
               <div
                 key={item.label}
-                className="border-t border-black/20 pt-7"
+                className="border-t border-[var(--zindua-forest)]/20 pt-7"
               >
                 <AnimatedCounter
                   value={item.value}
                   suffix={item.suffix}
                 />
 
-                <p className="mt-4 text-sm font-bold uppercase tracking-wider text-black/50">
+                <p className="mt-4 text-sm font-bold uppercase tracking-wider text-[var(--zindua-forest)]/70">
                   {item.label}
                 </p>
               </div>
@@ -857,22 +857,22 @@ export default function OurWorkPage() {
       {/* PROJECTS */}
       <section
         id="projects"
-        className="bg-[#faf9f5] py-24 sm:py-32"
+        className="bg-[radial-gradient(circle_at_top,_rgba(217,168,103,0.18),_transparent_18%),linear-gradient(180deg,_#091f1f_0%,_#0f2f2d_100%)] py-24 text-[var(--zindua-ivory)] sm:py-32"
       >
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div className="max-w-3xl">
               <SectionLabel>Featured projects</SectionLabel>
 
-              <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+              <h2 className="text-4xl font-black tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-7xl">
                 Work that moves
-                <span className="block text-black/35">
+                <span className="block text-[var(--text-muted)]">
                   ideas forward.
                 </span>
               </h2>
             </div>
 
-            <p className="max-w-md text-base leading-8 text-black/50">
+            <p className="max-w-md text-base leading-8 text-[var(--text-soft)]">
               Explore some of the areas where Zindua is creating
               opportunities through learning, technology, leadership and
               community.
@@ -885,8 +885,8 @@ export default function OurWorkPage() {
               onClick={() => setActiveCategory("All")}
               className={`rounded-full px-5 py-3 text-xs font-bold ${
                 activeCategory === "All"
-                  ? "bg-black text-white"
-                  : "bg-black/5 text-black/50"
+                  ? "bg-[var(--zindua-gold)] text-[var(--zindua-forest)]"
+                  : "bg-white/5 text-[var(--text-soft)]"
               }`}
             >
               All projects
@@ -901,8 +901,8 @@ export default function OurWorkPage() {
                 }
                 className={`rounded-full px-5 py-3 text-xs font-bold ${
                   activeCategory === category.name
-                    ? "bg-black text-white"
-                    : "bg-black/5 text-black/50"
+                    ? "bg-[var(--zindua-gold)] text-[var(--zindua-forest)]"
+                    : "bg-white/5 text-[var(--text-soft)]"
                 }`}
               >
                 {category.name}
@@ -920,7 +920,7 @@ export default function OurWorkPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.7 }}
-                  className="group grid overflow-hidden rounded-[2rem] border border-black/10 bg-white lg:grid-cols-[1fr_1fr]"
+                  className="group grid overflow-hidden rounded-[2rem] border border-white/10 bg-[rgba(255,255,255,0.03)] lg:grid-cols-[1fr_1fr]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:min-h-[500px]">
                     <Image
@@ -946,29 +946,29 @@ export default function OurWorkPage() {
                   <div className="flex flex-col justify-between p-7 sm:p-10 lg:p-14">
                     <div>
                       <div className="flex items-center justify-between">
-                        <span className="rounded-full bg-black/5 px-4 py-2 text-[10px] font-black uppercase tracking-wider">
+                        <span className="rounded-full bg-[rgba(217,168,103,0.12)] px-4 py-2 text-[10px] font-black uppercase tracking-wider text-[var(--zindua-gold)]">
                           {project.category}
                         </span>
 
                         <ArrowUpRight
-                          className="text-black/25 transition group-hover:text-black"
+                          className="text-[var(--zindua-gold)]/80 transition group-hover:text-[var(--zindua-gold)]"
                           size={22}
                         />
                       </div>
 
-                      <h3 className="mt-12 text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                      <h3 className="mt-12 text-4xl font-black tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl">
                         {project.title}
                       </h3>
 
-                      <p className="mt-6 max-w-xl text-base leading-8 text-black/55">
+                      <p className="mt-6 max-w-xl text-base leading-8 text-[var(--text-soft)]">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="mt-12 border-t border-black/10 pt-6">
-                      <div className="flex items-center gap-3">
+                    <div className="mt-12 border-t border-white/10 pt-6">
+                      <div className="flex items-center gap-3 text-[var(--zindua-gold)]">
                         <CircleCheck size={18} />
-                        <span className="text-sm font-bold">
+                        <span className="text-sm font-bold text-[var(--zindua-ivory)]">
                           {project.impact}
                         </span>
                       </div>
@@ -982,7 +982,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* STORY */}
-      <section className="relative overflow-hidden bg-[#e9e5dc] py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_rgba(8,31,31,0.98),_rgba(11,47,45,0.98))] py-24 text-[var(--zindua-ivory)] sm:py-32">
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
           <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center">
             <div className="relative min-h-[550px] overflow-hidden rounded-[2rem]">
@@ -993,7 +993,7 @@ export default function OurWorkPage() {
                 className="object-cover"
               />
 
-              <div className="absolute left-6 top-6 rounded-full bg-white px-4 py-2 text-xs font-black">
+              <div className="absolute left-6 top-6 rounded-full bg-white px-4 py-2 text-xs font-black text-[var(--zindua-forest)]">
                 PEOPLE FIRST
               </div>
             </div>
@@ -1003,26 +1003,26 @@ export default function OurWorkPage() {
 
               <Quote
                 size={46}
-                className="mb-7 text-black/15"
+                className="mb-7 text-[var(--zindua-gold)]/30"
               />
 
-              <h2 className="text-4xl font-black leading-[1.05] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-black leading-[1.05] tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-6xl">
                 A photograph captures a moment.
-                <span className="text-black/35">
+                <span className="text-[var(--text-muted)]">
                   {" "}
                   Our work captures possibility.
                 </span>
               </h2>
 
-              <p className="mt-8 text-base leading-8 text-black/60">
+              <p className="mt-8 text-base leading-8 text-[var(--text-soft)]">
                 Behind every workshop, classroom, community activity,
                 mentorship session and idea is a person with potential.
                 Our role is to help create the conditions where that
                 potential can grow.
               </p>
 
-              <div className="mt-9 flex items-center gap-3 text-sm font-bold">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
+              <div className="mt-9 flex items-center gap-3 text-sm font-bold text-[var(--zindua-gold)]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--zindua-gold)] text-[var(--zindua-forest)]">
                   <Sparkles size={16} />
                 </span>
                 Building a smarter world together.
@@ -1033,19 +1033,19 @@ export default function OurWorkPage() {
       </section>
 
       {/* TIMELINE */}
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-[#081f1f] py-24 text-[var(--zindua-ivory)] sm:py-32">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
           <div className="text-center">
             <SectionLabel>How we work</SectionLabel>
 
             <h2 className="mx-auto max-w-3xl text-4xl font-black tracking-[-0.04em] sm:text-5xl lg:text-7xl">
               From listening
-              <span className="text-black/30"> to action.</span>
+              <span className="text-[var(--text-muted)]"> to action.</span>
             </h2>
           </div>
 
           <div className="relative mt-20">
-            <div className="absolute bottom-0 left-6 top-0 w-px bg-black/10 sm:left-1/2" />
+            <div className="absolute bottom-0 left-6 top-0 w-px bg-white/10 sm:left-1/2" />
 
             {[
               {
@@ -1106,25 +1106,25 @@ export default function OurWorkPage() {
                           : "sm:justify-end"
                       }`}
                     >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-white">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--zindua-gold)] text-[var(--zindua-forest)]">
                         <Icon size={19} />
                       </div>
                     </div>
 
-                    <div className="text-xs font-black text-black/25">
+                    <div className="text-xs font-black text-[var(--text-muted)]">
                       {item.number}
                     </div>
 
-                    <h3 className="mt-2 text-3xl font-black">
+                    <h3 className="mt-2 text-3xl font-black text-[var(--zindua-ivory)]">
                       {item.title}
                     </h3>
 
-                    <p className="mt-3 text-sm leading-7 text-black/50">
+                    <p className="mt-3 text-sm leading-7 text-[var(--text-soft)]">
                       {item.text}
                     </p>
                   </div>
 
-                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-[#d9ff45] text-xs font-black sm:left-1/2 sm:-translate-x-1/2">
+                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border-4 border-[#081f1f] bg-[var(--zindua-gold)] text-xs font-black text-[var(--zindua-forest)] sm:left-1/2 sm:-translate-x-1/2">
                     {item.number}
                   </div>
                 </motion.div>
@@ -1138,22 +1138,22 @@ export default function OurWorkPage() {
       <GalleryManager />
 
       {/* PARTNERS */}
-      <section className="bg-black py-24 text-white sm:py-32">
+      <section className="bg-[#081f1f] py-24 text-[var(--zindua-ivory)] sm:py-32">
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
           <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <SectionLabel light>Collaboration</SectionLabel>
 
-              <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-black tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-6xl">
                 Change becomes
-                <span className="block text-white/35">
+                <span className="block text-[var(--text-muted)]">
                   stronger together.
                 </span>
               </h2>
             </div>
 
             <div>
-              <p className="text-lg leading-9 text-white/55">
+              <p className="text-lg leading-9 text-[var(--text-soft)]">
                 Our work is strengthened through partnerships with
                 people, institutions, educators, communities, innovators
                 and organisations that believe in expanding opportunity.
@@ -1170,7 +1170,7 @@ export default function OurWorkPage() {
                 ].map((partner) => (
                   <div
                     key={partner}
-                    className="flex min-h-28 items-center justify-center bg-black p-5 text-center text-xs font-black tracking-widest text-white/35 transition hover:bg-white/5 hover:text-white"
+                    className="flex min-h-28 items-center justify-center bg-[#0a2a29] p-5 text-center text-xs font-black tracking-widest text-[var(--text-muted)] transition hover:bg-[rgba(217,168,103,0.08)] hover:text-[var(--zindua-ivory)]"
                   >
                     {partner}
                   </div>
@@ -1182,17 +1182,17 @@ export default function OurWorkPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#faf9f5] py-24 sm:py-32">
+      <section className="bg-[#091f1f] py-24 text-[var(--zindua-ivory)] sm:py-32">
         <div className="mx-auto max-w-[1000px] px-5 sm:px-8">
           <div className="text-center">
             <SectionLabel>Questions</SectionLabel>
 
-            <h2 className="text-4xl font-black tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+            <h2 className="text-4xl font-black tracking-[-0.04em] text-[var(--zindua-ivory)] sm:text-5xl lg:text-6xl">
               About our work.
             </h2>
           </div>
 
-          <div className="mt-14 divide-y divide-black/10 border-y border-black/10">
+          <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index
 
@@ -1205,11 +1205,11 @@ export default function OurWorkPage() {
                     }
                     className="flex w-full items-center justify-between gap-6 py-7 text-left"
                   >
-                    <span className="text-lg font-black sm:text-xl">
+                    <span className="text-lg font-black text-[var(--zindua-ivory)] sm:text-xl">
                       {faq.question}
                     </span>
 
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--zindua-gold)]">
                       {isOpen ? (
                         <ChevronUp size={18} />
                       ) : (
@@ -1235,7 +1235,7 @@ export default function OurWorkPage() {
                         }}
                         className="overflow-hidden"
                       >
-                        <p className="max-w-3xl pb-7 pr-14 text-sm leading-8 text-black/50 sm:text-base">
+                        <p className="max-w-3xl pb-7 pr-14 text-sm leading-8 text-[var(--text-soft)] sm:text-base">
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -1249,24 +1249,24 @@ export default function OurWorkPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative overflow-hidden bg-[#d9ff45] py-24 sm:py-32">
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full border-[80px] border-black/[0.04]" />
-        <div className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full border-[60px] border-black/[0.04]" />
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_rgba(217,168,103,0.22),_rgba(217,168,103,0.08))] py-24 text-[var(--zindua-forest)] sm:py-32">
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full border-[80px] border-[var(--zindua-forest)]/[0.04]" />
+        <div className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full border-[60px] border-[var(--zindua-forest)]/[0.04]" />
 
         <div className="relative mx-auto max-w-[1200px] px-5 text-center sm:px-8">
           <Target
-            className="mx-auto mb-7"
+            className="mx-auto mb-7 text-[var(--zindua-forest)]"
             size={45}
           />
 
           <h2 className="mx-auto max-w-5xl text-5xl font-black leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-8xl">
             There is more work
-            <span className="block text-black/30">
+            <span className="block text-[var(--zindua-forest)]/40">
               to be done.
             </span>
           </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-black/60 sm:text-lg">
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-[var(--zindua-forest)]/70 sm:text-lg">
             Whether you have an idea, a skill, a photograph, a
             partnership or simply the desire to help, there is a place
             for you in the Zindua story.
@@ -1275,7 +1275,7 @@ export default function OurWorkPage() {
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/get-involved"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white transition hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--zindua-forest)] px-7 py-4 text-sm font-black text-[var(--zindua-ivory)] transition hover:scale-105"
             >
               Get involved
               <ArrowRight size={17} />
@@ -1283,7 +1283,7 @@ export default function OurWorkPage() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-black/20 px-7 py-4 text-sm font-black transition hover:bg-black/5"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--zindua-forest)]/20 bg-white/20 px-7 py-4 text-sm font-black text-[var(--zindua-forest)] transition hover:bg-white/30"
             >
               Start a conversation
               <MessageCircle size={17} />
