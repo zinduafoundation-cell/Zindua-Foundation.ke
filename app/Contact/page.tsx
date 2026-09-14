@@ -277,10 +277,10 @@ export default function ContactPage() {
                 </p>
 
                 <a
-                  href="mailto:hello@zindua.org"
+                  href="mailto:partner@zinduafoundation.com"
                   className="mt-2 block text-lg font-semibold text-[#173C2F]"
                 >
-                  hello@zindua.org
+                  partner@zinduafoundation.com
                 </a>
 
                 <p className="mt-3 text-sm leading-6 text-[#737A74]">
@@ -300,7 +300,7 @@ export default function ContactPage() {
                 </p>
 
                 <p className="mt-3 text-sm leading-6 text-[#737A74]">
-                  Add your official Zindua phone number here.
+                  0720 000 000 (Kenya) <br />
                 </p>
               </div>
 
